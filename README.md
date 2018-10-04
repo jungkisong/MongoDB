@@ -1,7 +1,4 @@
-# MongoDB
-# MongoDB踩坑之路
-
-<!-- 安装篇 -->
+# 安装篇
 
 安装时出现：
 "service 'mongodb server' failed to start. verify that you have sufficient privileges to start system services"
@@ -21,7 +18,7 @@ $ mongo
 
 
 
-<!-- 启动篇 -->
+# 启动篇
 
  启动Mongodb服务有两种方式，前台启动或者Daemon方式启动，前者启动会需要保持当前Session不能被关闭，后者可以作为系统的fork进程执行，下文中的path是mongodb部署的实际地址。
 
@@ -36,7 +33,7 @@ mongo 10.10.10.10:12345
 或者使用mongod自带的--fork参数，此时必须指定log的路径。
 ./mongod --dbpath=/path/mongodb --fork=true logpath=/path/mongod.log
 
-# 4. （推荐）以配置文件形式保存配置。
+4. （推荐）以配置文件形式保存配置。
 <!-- 以下为mongod.conf代码： -->
 port=12345  
 bind_ip=10.10.10.10  
@@ -46,7 +43,7 @@ logappend=true
 fork=true
 然后启动mongod时引入配置文件：./mongod -f /path/mongod.conf  
 
-# 下面是mongod启动的常用参数详细说明：
+下面是mongod启动的常用参数详细说明：
 <!-- 参数	说明	取值示例 -->
 dbpath	mongodb数据文件存储路径	/data/mongodb
 logpath	mongod的日志路径	/var/log/mongodb/mongodb.log
